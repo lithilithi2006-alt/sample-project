@@ -1,4 +1,5 @@
-# Function to check grade based on marks
+# grade_checker.py
+
 def grade_checker(marks):
     if marks >= 95:
         return "A+"
@@ -11,8 +12,14 @@ def grade_checker(marks):
     else:
         return "F"
 
-# Input from user
-marks = float(input("Enter the student's marks (0-100): "))
+while True:
+    marks = float(input("\nEnter student's marks (0-100): "))
+    if marks < 0 or marks > 100:
+        print("Invalid marks! Please enter between 0 and 100.")
+        continue
+    print("Grade:", grade_checker(marks))
 
-# Display grade
-print("Grade:", grade_checker(marks))
+    cont = input("Do you want to check another grade? (y/n): ").lower()
+    if cont != 'y':
+        print("Exiting Grade Checker...")
+        break
